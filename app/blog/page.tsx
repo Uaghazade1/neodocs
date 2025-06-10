@@ -8,6 +8,7 @@ import { formatDate2, stringToDate } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "AriaDocs - Blog",
@@ -23,6 +24,12 @@ export default async function BlogIndexPage() {
         <h1 className="sm:text-3xl text-2xl font-extrabold">
           The latest blogs of this product
         </h1>
+        <Link
+          href="/docs/getting-started"
+          className={buttonVariants({ className: "mt-4", size: "md" })}
+        >
+          Explore Documentation
+        </Link>
         <p className="text-muted-foreground sm:text-[16.5px] text-[14.5px]">
           All the latest blogs and news, straight from the team.
         </p>

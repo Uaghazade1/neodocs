@@ -1,0 +1,18 @@
+---
+title: Storage
+description: NeoSaaS leverages Supabase Storage to manage media files securely and efficiently
+---
+
+## Configuring Storage
+
+<Stepper>
+  <StepperItem title="Go to your Supabase Project">
+Open the dashboard of your Supabase project.
+  </StepperItem>
+  <StepperItem title="Navigate to Storage → Create a New Bucket">
+   Click `New bucket` and create one with a descriptive name, for example: `public`.
+  </StepperItem>
+  <StepperItem title="Make sure to uncheck Private bucket if you want files to be publicly accessible.">
+   You can later add RLS (Row Level Security) or signed URLs for protected access if needed.
+  </StepperItem>
+</Stepper>

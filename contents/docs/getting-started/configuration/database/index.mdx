@@ -1,0 +1,29 @@
+---
+title: Database Setup
+description: NeoSaaS uses Supabase as its database solution.
+
+---
+
+Before running the project, you need to ensure your database is properly configured.
+
+## Configuring database
+
+<Stepper>
+  <StepperItem title="Go to your Supabase Dashboard">
+
+  ```plaintext
+  https://supabase.com/dashboard
+  ```
+  </StepperItem>
+  <StepperItem title="Navigate to SQL Editor">
+This is where you can run SQL scripts to create tables, functions, and more.
+  </StepperItem>
+  <StepperItem title="Run the SQL file">
+
+  The file provided in the `/supabase/migrations/001_create_tables.sql` path.
+
+This file includes the full schema for NeoSaaS — tables for users, subscriptions, customers, and other core features.
+  </StepperItem>
+</Stepper>
+
+**Once executed, your database will be ready to store user accounts, subscriptions, and product data.**

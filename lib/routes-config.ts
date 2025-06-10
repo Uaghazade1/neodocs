@@ -15,11 +15,19 @@ export const ROUTES: EachRoute[] = [
     noLink: true,
     items: [
       { title: "Introduction", href: "/introduction" },
+      { title: "Configuration", href: "/configuration", items: [
+        { title: "Authentication", href: "/authentication" },
+        { title: "Database", href: "/database" },
+        { title: "Storage", href: "/storage" },
+        { title: "Stripe Billing", href: "/stripe" },
+        { title: "AI", href: "/ai" },
+        { title: "Analytics", href: "/analytics" },
+      ] },
       {
         title: "Installation",
         href: "/installation",
       },
-      { title: "Quick Start Guide", href: "/quick-start-guide" },
+      
       {
         title: "Project Structure", 
         href: "/project-structure",

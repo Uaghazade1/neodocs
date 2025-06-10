@@ -1,0 +1,58 @@
+---
+title: Authentication
+description: NeoSaaS uses Supabase Auth to handle user sign-up, login, and session management.
+---
+
+## Email Auth
+
+<Stepper>
+  <StepperItem title="Go to your Supabase dashboard.">
+  This is where you manage your database, auth settings, and more.    
+
+```plaintext
+  https://supabase.com
+  ```
+  </StepperItem>
+  <StepperItem title="Navigate to Authentication">
+This section lets you control how users register and log in.
+  </StepperItem>
+
+  <StepperItem title="Go to Sign In / Providers">
+Email provider automatically enabled in default Supabase settings. You can also enable `Google` and `Github` providers optionally.
+  </StepperItem>
+
+  <StepperItem title="Navigate to URL Configuration and set the following:">
+
+Site URL (Used during local development for redirects)
+
+ ```plaintext
+ http://localhost:3000
+ ```
+
+ Redirect URLs (These are the URLs users will be redirected to after login/logout)
+
+ ```plaintext
+ http://localhost:3000, https://yourdomain.com
+ ```
+
+  </StepperItem>
+</Stepper>
+
+## Google Auth
+
+You can easily follow along by watching the video at this link.
+
+ ```plaintext
+ https://youtu.be/sB6bPOvvlgw?si=57X2CjkIp7kNahn-
+ ```
+
+## Github Auth
+
+You can easily follow along by watching the video at this link.
+
+ ```plaintext
+ https://youtu.be/RlfCIvmimSA?si=8F375eU6WnpizVjK
+ ```
+<Note type="warning" title="Warning">
+You only need to focus on the configuration part of the videos; there's no need to make any changes to the code.
+</Note>

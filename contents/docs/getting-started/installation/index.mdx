@@ -3,6 +3,8 @@ title: Installation
 description: Installation guide for NeoSaaS.
 ---
 
+## Prerequisites
+
 To get started with NeoSaaS, ensure you have the following prerequisites installed:
 
 - **Node.js** 18.x or later
@@ -17,23 +19,23 @@ Then, using the access you've been given, go to the **Releases** section of the 
 ## Run application
 
 <Note type="warning" title="Warning">
-To get the required `.env` keys for NeoSaaS to run properly, check the <a href="/docs/getting-started/quick-start-guide"> **section**</a> in the left menu to configure this keys and database.
+To get the required `.env` keys for NeoSaaS to run properly, check the <a href="/docs/getting-started/configuration/"> **section**</a> in the left menu to configure this keys and database.
 
 </Note>
 
 To get started, you can clone the AriaDocs repository directly from GitHub. 
 <Stepper>
-  <StepperItem title="Step 1: Unzip the downloaded `.zip` file into a folder of your choice.  
+  <StepperItem title="Unzip the downloaded `.zip` file into a folder of your choice.  
 ">
    
   </StepperItem>
 
-  <StepperItem title="Step 2: Next, open the project folder in your favorite IDE (Cursor, Windsurf, VS Code, etc.).
+  <StepperItem title="Next, open the project folder in your favorite IDE (Cursor, Windsurf, VS Code, etc.).
 ">
   
   </StepperItem>
 
-  <StepperItem title="Step 3: Copy the .env.example file and rename it to .env">
+  <StepperItem title="Copy the .env.example file and rename it to .env">
    After opening the project, copy the `.env.example` file and rename it to `.env` with just copy paste or with this code in terminal.  
 
 
@@ -42,7 +44,7 @@ To get started, you can clone the AriaDocs repository directly from GitHub.
     ```
   </StepperItem>
 
-  <StepperItem title="Step 4: Replace the placeholder values inside `.env` with your actual environment-specific credentials.
+  <StepperItem title="Replace the placeholder values inside `.env` with your actual environment-specific credentials.
 ">
    ```javascript:.env showLineNumbers
 # Change this lines with your actual keys
@@ -64,7 +66,7 @@ STRIPE_WEBHOOK_SECRET="whsec_..."
 ```
 
   </StepperItem>
-  <StepperItem title="Step 5: Install dependencies">
+  <StepperItem title="Install dependencies">
 Run `npm install` on terminal to install all dependencies.
 
 
@@ -74,7 +76,7 @@ Run `npm install` on terminal to install all dependencies.
     ```
   </StepperItem>
 
-   <StepperItem title="Step 6: Start the application">
+   <StepperItem title="Start the application">
 Finally, start the development server with `npm run dev` to begin testing the project locally.
 
     ```plaintext
@@ -87,9 +89,4 @@ Finally, start the development server with `npm run dev` to begin testing the pr
 
 <Note type="success" title="You're all set!"> 
 NeoSaaS is now running locally — start customizing, connect your database, and launch your SaaS faster.
-</Note>
-
-<Note type="warning" title="Warning">
-To get the required `.env` keys for NeoSaaS to run properly, check the <a href="/docs/getting-started/quick-start-guide"> **section**</a> in the left menu to configure this keys and database.
-
 </Note>
