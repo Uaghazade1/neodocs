@@ -7,72 +7,89 @@ To get started with NeoSaaS, ensure you have the following prerequisites install
 
 - **Node.js** 18.x or later
 - **NPM**
-- **Stripe** cccount for accept payments
-- **
+- **Stripe** account for accepting payments
 
-## Clone Repository
+To set up **NeoSaaS**, first buy the boilerplate from <a href="https://neosaas.dev">**this**</a> link. 
+
+
+Then, using the access you've been given, go to the **Releases** section of the GitHub repository and download the latest version to your computer.
+
+## Run application
+
+<Note type="warning" title="Warning">
+To get the required `.env` keys for NeoSaaS to run properly, check the <a href="/docs/getting-started/quick-start-guide"> **section**</a> in the left menu to configure this keys and database.
+
+</Note>
+
 To get started, you can clone the AriaDocs repository directly from GitHub. 
 <Stepper>
-  <StepperItem title="Step 1: Clone the AriaDocs Repository">
-    Begin by cloning the AriaDocs repository from GitHub:
+  <StepperItem title="Step 1: Unzip the downloaded `.zip` file into a folder of your choice.  
+">
+   
+  </StepperItem>
+
+  <StepperItem title="Step 2: Next, open the project folder in your favorite IDE (Cursor, Windsurf, VS Code, etc.).
+">
+  
+  </StepperItem>
+
+  <StepperItem title="Step 3: Copy the .env.example file and rename it to .env">
+   After opening the project, copy the `.env.example` file and rename it to `.env` with just copy paste or with this code in terminal.  
+
 
     ```plaintext
-    git clone https://github.com/nisabmohd/Aria-Docs.git
+    cp .env.example .env
     ```
   </StepperItem>
 
-  <StepperItem title="Step 2: Access the Project Directory">
-    After cloning, navigate into the project directory to start setting up:
+  <StepperItem title="Step 4: Replace the placeholder values inside `.env` with your actual environment-specific credentials.
+">
+   ```javascript:.env showLineNumbers
+# Change this lines with your actual keys
 
-    ```plaintext
-    cd Aria-Docs
-    ```
+# Your Supabase keys
+NEXT_PUBLIC_SUPABASE_URL="your_supabase_url"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your_supabase_anon_key"
+
+SUPABASE_URL="your_supabase_url"
+SUPABASE_SERVICE_ROLE_KEY="your_supabase_service_role_key"
+
+# Your website url without "/" in the end
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+
+# Your Stripe test keys. Don't forget to use live keys on production
+STRIPE_SECRET_KEY="sk_test_..."
+STRIPE_WEBHOOK_SECRET="whsec_..."
+
+```
+
   </StepperItem>
+  <StepperItem title="Step 5: Install dependencies">
+Run `npm install` on terminal to install all dependencies.
 
-  <StepperItem title="Step 3: Install Required Dependencies">
-    Install all necessary project dependencies with npm:
 
-    <Note title="Remember">
-      To support React 19, package maintainers will need to test and update their packages to include React 19 as a peer dependency. This is already in progress.
-      <br/>
-    </Note>
 
     ```plaintext
     npm install
     ```
   </StepperItem>
 
-  <StepperItem title="Step 4: Launch the Development Server">
-    Finally, start the development server to view the project locally:
+   <StepperItem title="Step 6: Start the application">
+Finally, start the development server with `npm run dev` to begin testing the project locally.
 
     ```plaintext
     npm run dev
     ```
+
+  
   </StepperItem>
 </Stepper>
 
-## Quick Setup with npx
+<Note type="success" title="You're all set!"> 
+NeoSaaS is now running locally — start customizing, connect your database, and launch your SaaS faster.
+</Note>
 
-For a faster setup, use the `npx` command to create a new AriaDocs project in one step:
+<Note type="warning" title="Warning">
+To get the required `.env` keys for NeoSaaS to run properly, check the <a href="/docs/getting-started/quick-start-guide"> **section**</a> in the left menu to configure this keys and database.
 
-```plaintext
-npx create-aria-doc <project-directory>
-```
-
-**Command Output:**
-
-```plaintext
-Creating a new AriaDocs project in /path/to/your/project from the master branch...
-Cloning Master (Full Documentation)...
-AriaDocs project successfully created in /path/to/your/project!
-
-Next steps:
-1. Navigate to your project directory:
-   cd <project-directory>
-2. Install dependencies:
-   npm install
-3. Start the development server:
-   npm run dev
-```
-
-With this setup, you’ll have a ready-to-use AriaDocs instance to start building your documentation.
+</Note>
