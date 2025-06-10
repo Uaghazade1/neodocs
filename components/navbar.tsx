@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/theme-toggle";
-import { GithubIcon, TwitterIcon, CommandIcon } from "lucide-react";
+import { Book, GithubIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Anchor from "./anchor";
@@ -47,9 +47,9 @@ export function Navbar() {
             <div className="lg:flex hidden">
               <Logo />
             </div>
-            <div className="md:flex hidden items-center gap-4 text-sm font-medium text-muted-foreground">
+            {/* <div className="md:flex hidden items-center gap-4 text-sm font-medium text-muted-foreground">
               <NavMenu />
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export function Navbar() {
           <div className="flex items-center justify-between sm:gap-2">
             <div className="flex ml-4 sm:ml-0">
               <Link
-                href="https://github.com/nisabmohd/NexDocs"
+                href="https://github.com/uaghazade1"
                 className={buttonVariants({
                   variant: "ghost",
                   size: "icon",
@@ -67,7 +67,8 @@ export function Navbar() {
                 <GithubIcon className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <Link
-                href="#"
+                
+                href="https://x.com/uaghazadae"
                 className={buttonVariants({
                   variant: "ghost",
                   size: "icon",
@@ -87,8 +88,10 @@ export function Navbar() {
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <CommandIcon className="w-6 h-6 text-muted-foreground" strokeWidth={2} />
-      <h2 className="text-md font-bold font-code">AriaDocs</h2>
+      <Book className="w-6 h-6 text-muted-foreground" strokeWidth={2} />
+      <h2 className="text-md font-bold font-code">
+        NeoSaaS<span className="text-md font-normal text-muted-foreground">Docs</span>
+      </h2>
     </Link>
   );
 }
