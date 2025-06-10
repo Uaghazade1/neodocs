@@ -1,4 +1,180 @@
 ---
 title: Stripe Billing
-description: This section provibla bal
+description: Our boilerplate uses Stripe to handle subscriptions, payments, and billing logic seamlessly.
 ---
+
+Follow these steps to configure Stripe:
+
+## Create product
+
+<Stepper>
+  <StepperItem title="Go to Stripe Dashboard">
+Navigate to **Product catalog** and create your subscription plans.
+   - Add product name (Basic, Plus, Elite), monthly pricing, and billing intervals.
+  </StepperItem>
+  <StepperItem title="Navigate to newly created products">
+Copy the price IDs from the products you created in Stripe. For ex.: `price_12345`
+
+  </StepperItem>
+  <StepperItem title="Add this prices to your code">
+Add this IDs to `app/api/webhooks/stripe/route.ts` and `/src/stripe-config.ts` files:
+
+```javascript:route.ts showLineNumbers {4-6}
+ // Change this lines with your product price IDs
+
+  const priceToPlana = {
+    'price_1RXOdFR4180vV2vzstsIlApi': 'basic',
+    'price_1RXOdZR4180vV2vz2cwzuGUL': 'plus',
+    'price_1RXOdmR4180vV2vzeW1272Qy': 'elite',
+  };
+```
+
+```javascript:stripe-config.ts 
+//Change priceId lines
+
+export const STRIPE_PRODUCTS = {
+  BASIC: {
+    id: 'prod_SK3j6XDyMHNtrP',
+    name: 'Basic',
+    description: 'Perfect for trying out the platform',
+    priceId: 'price_1RXOdFR4180vV2vzstsIlApi', //this line
+    price: 19,
+    mode: 'subscription' as const,
+    features: [
+      'Basic access',
+      '2 projects',
+      'Community support',
+      '1GB storage', 
+      'Basic analytics',
+    ],
+  },
+  PLUS: {
+    id: 'prod_SLILb9CwBPHZfl',
+    name: 'Plus',
+    description: 'For individuals and small teams',
+    priceId: 'price_1RXOdZR4180vV2vz2cwzuGUL', //this line
+    price: 49,
+    mode: 'subscription' as const,
+    features: [
+      'Everything in Basic',
+      '10 projects',
+      'Email support',
+      'API access',
+      'Advanced analytics',
+      'Team collaboration',
+    ],
+  },
+  
+  ELITE: {
+    id: 'prod_SLIMID4CHzjlrm',
+    name: 'Elite',
+    description: 'For growing businesses and teams',
+    priceId: 'price_1RXOdmR4180vV2vzeW1272Qy', //this line
+    price: 99,
+    mode: 'subscription' as const,
+    features: [
+      'Everything in Plus',
+      'Unlimited projects',
+      'Priority support',
+      'Custom integrations',
+      'Advanced security',
+      'SSO authentication',
+    ],
+  },
+ 
+} as const;
+
+```
+  </StepperItem>
+</Stepper>
+
+## Stripe Secret Key
+
+<Stepper>
+  <StepperItem title="Naviagte to Stripe Dashboard → Developers">
+
+   ```plaintext
+  https://dashboard.stripe.com/developers
+  ```
+  </StepperItem>
+  <StepperItem title="Go to API Keys">
+Click `+ Create secret key` to create your own key. **Copy the key.** You likely won't be able to see it again later. In test mode, it usually looks like `sk_test_12345`, and in production, it appears as `sk_live_12345`.
+  </StepperItem>
+  <StepperItem title="Add your secret key to `.env` file in your code">
+
+```javascript:.env showLineNumbers {14}
+ # Change this lines with your actual keys
+
+# Your Supabase keys
+NEXT_PUBLIC_SUPABASE_URL="your_supabase_url"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your_supabase_anon_key"
+
+SUPABASE_URL="your_supabae_url"
+SUPABASE_SERVICE_ROLE_KEY="your_supabase_service_role_key"
+
+# Your website url without "/" in the end
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+
+# Your Stripe keys. Don't forget to use live keys on production
+STRIPE_SECRET_KEY="sk_test_..."
+STRIPE_WEBHOOK_SECRET="whsec_..."
+
+```
+
+  </StepperItem>
+</Stepper>
+
+## Stripe Webhooks
+
+<Stepper>
+  <StepperItem title="Naviagte to Stripe Dashboard → Developers">
+
+   ```plaintext
+  https://dashboard.stripe.com/developers
+  ```
+    </StepperItem>
+   <StepperItem title="Go to Webhooks">
+Click `+ Add endpoint` to add your webhook. Your endpoit url must be this format: `https://your-website.com/api/webhooks/stripe` or in test mode `http://localhost:3000/api/webhooks/stripe`
+
+**Select this events in your webhook endpoint:**
+```plaintext
+checkout.session.completed
+```
+```plaintext
+customer.subscription.updated
+```
+```plaintext
+customer.subscription.deleted
+```
+```plaintext
+invoice.payment_succeeded
+```
+
+Click `Add endpoint`
+
+
+  </StepperItem>
+  <StepperItem title="Get your webhook secret">
+Click newly created webhook and reveal your signing secret. Copy it and add to your `.env` file:
+
+```javascript:.env showLineNumbers {15}
+ # Change this lines with your actual keys
+
+# Your Supabase keys
+NEXT_PUBLIC_SUPABASE_URL="your_supabase_url"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your_supabase_anon_key"
+
+SUPABASE_URL="your_supabae_url"
+SUPABASE_SERVICE_ROLE_KEY="your_supabase_service_role_key"
+
+# Your website url without "/" in the end
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+
+# Your Stripe keys. Don't forget to use live keys on production
+STRIPE_SECRET_KEY="sk_test_..."
+STRIPE_WEBHOOK_SECRET="whsec_..."
+
+```
+
+  </StepperItem>
+</Stepper>
