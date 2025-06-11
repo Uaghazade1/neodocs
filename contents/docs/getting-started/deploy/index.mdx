@@ -1,0 +1,42 @@
+---
+title: Deploy Your Project
+description: We recommend Vercel for deploying your project.
+---
+
+<Stepper>
+  <StepperItem title="Step 1: Go to Vercel">
+    Visit [vercel.com](https://vercel.com/) and log in with your account. If you don't have one, create a new account.  
+    Click on **"Add New Project"** from your dashboard.
+  </StepperItem>
+
+  <StepperItem title="Step 2: Import the GitHub Repository">
+    From the project list, select the **NeoSaaS GitHub repository** you received access to.  
+    Click **"Import"** and proceed to the next step.
+  </StepperItem>
+
+  <StepperItem title="Step 3: Configure Environment Variables">
+    Vercel will ask for environment variables during setup.  
+    Use the values from the `.env` file in the repository and paste them accordingly into Vercel.  
+    Be sure to include keys like:
+    
+    ```plaintext
+    NEXT_PUBLIC_SUPABASE_URL=
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=
+    SUPABASE_URL=
+    SUPABASE_SERVICE_ROLE_KEY=
+    STRIPE_SECRET_KEY=
+    STRIPE_WEBHOOK_SECRET=
+    ```
+
+    You can always update these later from the **Settings → Environment Variables** tab in your Vercel dashboard.
+  </StepperItem>
+
+  <StepperItem title="Step 4: Deploy the Project">
+    Once the environment variables are set, click **"Deploy"**.  
+    Vercel will automatically install dependencies, build the project, and host it under a vercel.app domain.
+  </StepperItem>
+
+  <StepperItem title="Step 5: Set a Custom Domain (Optional)">
+    If you want to connect a custom domain, go to the **Domains** tab and follow the instructions to link your domain name.
+  </StepperItem>
+</Stepper>
