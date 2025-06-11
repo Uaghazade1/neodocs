@@ -20,10 +20,10 @@ const monoFont = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AriaDocs - Template",
-  metadataBase: new URL("https://ariadocs.vercel.app/"),
+  title: "NeoSaaS - Modern SaaS Starter",
+  metadataBase: new URL("https://neosaas.dev"),
   description:
-    "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.",
+    "NeoSaaS is a modern SaaS starter kit built with Next.js, TypeScript, Supabase and Tailwind CSS",
 };
 
 export default function RootLayout({

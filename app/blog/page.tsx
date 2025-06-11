@@ -11,7 +11,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "AriaDocs - Blog",
+  title: "NeoSaaS - Blog",
 };
 
 export default async function BlogIndexPage() {
