@@ -1,4 +1,66 @@
 ---
-title: Analytics
-description: NeoSaaS uses Supabase Auth to handle user sign-up, login, and session management.
+title: Analytics Integration
+description: NeoSaaS supports integration with both Datafa.st and Google Analytics (GA) to give you powerful insights into user behavior and application performance.
 ---
+
+## Datafa.st
+
+<Stepper>
+  <StepperItem title="Go to Datafa.st and create an account.">
+   ```plaintext
+  https://datafa.st
+  ```
+  </StepperItem>
+  <StepperItem title="Create a new project and copy your Website ID">
+  </StepperItem>
+  <StepperItem title="Add it to your code">
+
+Add your project id to `/app/layout.tsx`
+
+```javascript:layout.tsx {2-3}
+    <Script
+          data-website-id="YOUR_WEBSITE_ID"
+          data-domain="YOUR_DOMAIN.COM"
+          src="https://datafa.st/js/script.js"
+          strategy="afterInteractive"
+        /> 
+```
+
+  </StepperItem>
+</Stepper>
+
+## Google Analytics
+
+Google Analytics is a popular tool for detailed traffic and user engagement tracking.
+
+<Stepper>
+  <StepperItem title="Go to the Google Analytics Console">
+  ```plaintext
+  https://analytics.google.com
+  ```
+  </StepperItem>
+  <StepperItem title="Create a new property for your project.">
+  </StepperItem>
+  <StepperItem title="Copy your Measurement ID. It starts with `G-12345`.">
+   </StepperItem>
+   <StepperItem title="Add it to your code">
+
+Add your project id to `/app/layout.tsx`
+
+```javascript:layout.tsx
+<Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-7CX695C9QV"
+  strategy="afterInteractive"
+  />
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7CX695C9QV');
+  `}
+  </Script>
+```
+
+  </StepperItem>
+</Stepper>

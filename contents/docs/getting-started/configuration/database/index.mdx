@@ -23,7 +23,35 @@ This is where you can run SQL scripts to create tables, functions, and more.
   The file provided in the `/supabase/migrations/001_create_tables.sql` path.
 
 This file includes the full schema for NeoSaaS — tables for users, subscriptions, customers, and other core features.
+**Once executed, your database will be ready to store user accounts, subscriptions, and product data.**
+  
+  </StepperItem>
+  <StepperItem title="Add Supabase keys to your `.env` file ">
+
+  Go to `Supabase → Settings → API Keys` to get your `anon` and `service_role` keys. Navigate to `Supabase → Settings → Data API` to find your `supabase_url`.
+
+```javascript:.env showLineNumbers {15}
+ # Change this lines with your actual keys
+
+# Your Supabase keys
+NEXT_PUBLIC_SUPABASE_URL="your_supabase_url"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your_supabase_anon_key"
+
+SUPABASE_URL="your_supabae_url"
+SUPABASE_SERVICE_ROLE_KEY="your_supabase_service_role_key"
+
+# Your website url without "/" in the end
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+
+# Your Stripe keys. Don't forget to use live keys on production
+STRIPE_SECRET_KEY="sk_test_..."
+STRIPE_WEBHOOK_SECRET="whsec_..."
+
+```
+
   </StepperItem>
 </Stepper>
 
-**Once executed, your database will be ready to store user accounts, subscriptions, and product data.**
+<Note type="success" title="Congrats!">
+  That's it! Your database connection is ready!
+</Note>

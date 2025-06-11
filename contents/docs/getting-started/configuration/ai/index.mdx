@@ -1,4 +1,45 @@
 ---
-title: AI
-description: NeoSaaS uses Supabase Auth to handle user sign-up, login, and session management.
+title: AI Integration
+description: We integrated OpenRouter to enable AI-powered features such as chat, content generation, or other intelligent tools via API.
+
 ---
+
+## Connect your OpenRouter account
+
+<Stepper>
+  <StepperItem title="Go to `OpenRouter.ai` and sign in or create an account.">
+  </StepperItem>
+  <StepperItem title="Navigate to your API Keys section.">
+  </StepperItem>
+  <StepperItem title="Generate a new API key (you may only see it once — make sure to copy and store it safely).">
+  </StepperItem>
+  <StepperItem title="Select a default model to use, such as `openai/gpt-4`, `mistralai/mixtral-8x7b`, or any available LLM based on your use case.
+">
+  </StepperItem>
+  <StepperItem title="Add it to your project">
+
+Add your API key to `/app/dashboard/ai/page.tsx`
+
+```javascript:page.tsx {4}
+  const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer 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",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://your-site.com",
+        "X-Title": "Your AI Boilerplate"
+      },
+      body: JSON.stringify({
+        model: "deepseek/deepseek-prover-v2:free",
+        messages: [
+          {
+            role: "user",
+            content: prompt
+          }
+        ]
+      })
+    });
+```
+
+  </StepperItem>
+</Stepper>
