@@ -36,7 +36,7 @@ export function FooterButtons() {
         Deploy
       </Link>
       <Link
-        href="https://github.com/sponsors/nisabmohd"
+        href="https://github.com/sponsors/uaghazade1"
         className={buttonVariants({ variant: "outline", size: "sm" })}
       >
         <HeartIcon className="h-4 w-4 mr-2 text-red-600 fill-current" />
