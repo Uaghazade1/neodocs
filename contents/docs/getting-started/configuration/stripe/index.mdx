@@ -178,3 +178,27 @@ STRIPE_WEBHOOK_SECRET="whsec_..."
 
   </StepperItem>
 </Stepper>
+
+## Stripe Customer Portal
+
+To get your customer portal url go to `Stripe → Settings → Billing → Customer Portal`
+
+Copy the link provided and paste it the the `components/dashboard/stripe-portal-button.tsx` file
+
+```javascript:.env showLineNumbers {9}
+"use client";
+
+import { Button } from "@/components/ui/button";
+
+export function StripePortalButton() {
+  return (
+    <Button 
+      variant="outline" 
+      onClick={() => window.location.href = 'https://billing.stripe.com/p/login/test_4gM5kF5Z39hCeOkdiU5EY00'}
+    >
+      Manage Subscription
+    </Button>
+  );
+} 
+
+```

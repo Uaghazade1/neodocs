@@ -21,7 +21,7 @@ const monoFont = Space_Mono({
 
 export const metadata: Metadata = {
   title: "NeoSaaS - Modern SaaS Starter",
-  metadataBase: new URL("https://neosaas.dev"),
+  metadataBase: new URL("https://docs.neosaas.dev"),
   description:
     "NeoSaaS is a modern SaaS starter kit built with Next.js, TypeScript, Supabase and Tailwind CSS",
 };
